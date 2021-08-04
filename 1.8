@@ -1,0 +1,14 @@
+Dockerfile:
+
+FROM ubuntu:18.04
+WORKDIR /usr/src/app
+COPY script.sh ./
+# This since it was giving me an error message about not having curl
+RUN apt-get update && apt-get install -y curl
+CMD ./script.sh
+
+Commands used:
+
+docker build . -t curler
+
+docker run curler
