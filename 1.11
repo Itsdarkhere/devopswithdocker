@@ -1,0 +1,16 @@
+./mvnw package && java -jar ./target/docker-example-1.1.3.jar (WITHOUT DOCKERFILE)
+
+Dockerfile:
+
+FROM openjdk:8
+
+ARG JAR_FILE=./target/docker-example-1.1.3.jar
+
+COPY ${JAR_FILE} app.jar
+
+ENTRYPOINT ["java","-jar","/app.jar"]
+
+
+
+
+docker build -t spring-app . && docker run -p 8080:8080 spring-apP
